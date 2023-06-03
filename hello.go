@@ -5,15 +5,18 @@ import (
 )
 
 func main() {
-	function1()
+	result := 0
+	for i := 0; i <= 10; i++ {
+		result = fiboacci(i)
+		fmt.Printf("fiboacci(%d) is: %d\n", i, result)
+	}
 }
 
-func function1() {
-	fmt.Printf("In function1 at the top\n")
-	defer function2()
-	fmt.Printf("In function1 at the bottom!\n")
-}
-
-func function2() {
-	fmt.Printf("function2: Deferred until the end of the calling function!")
+func fiboacci(n int) (res int) {
+	if n <= 1 {
+		res = 1
+	} else {
+		res = fiboacci(n-1) + fiboacci(n-2)
+	}
+	return
 }
